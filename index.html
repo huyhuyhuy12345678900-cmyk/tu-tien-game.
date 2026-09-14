@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu Tiên - Vạn Đạo Tranh Phong</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#070a12;--panel:#101522;--panel2:#151b2a;--border:#2b3448;
+  --gold:#e7bd62;--gold2:#9d742b;--text:#e8ecf5;--muted:#8993a8;
+  --accent:#6f8cff;--danger:#ff7777;
+}
+body{
+  background:
+    radial-gradient(circle at 50% -10%,rgba(111,140,255,.18),transparent 38%),
+    radial-gradient(circle at 10% 30%,rgba(231,189,98,.07),transparent 30%),
+    linear-gradient(180deg,#080b13 0%,#060810 100%);
+  color:var(--text);font-family:Arial,sans-serif;min-height:100vh;
+}
+.container{max-width:920px;margin:auto;padding:18px 14px 40px}
+header{
+  text-align:center;padding:26px 12px 22px;border-bottom:1px solid rgba(231,189,98,.22);
+  position:relative;
+}
+header:after{
+  content:"";display:block;width:90px;height:2px;margin:14px auto 0;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent)
+}
+header h1{
+  color:var(--gold);font-size:32px;letter-spacing:4px;
+  text-shadow:0 0 22px rgba(231,189,98,.22)
+}
+header p{color:var(--muted);margin-top:8px;font-size:13px;letter-spacing:1.5px}
+.panel{
+  background:linear-gradient(145deg,rgba(21,27,42,.97),rgba(12,16,26,.97));
+  border:1px solid var(--border);border-radius:14px;padding:17px;margin-top:14px;
+  box-shadow:0 12px 35px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.025);
+}
+.title{
+  color:var(--gold);font-size:18px;margin-bottom:13px;font-weight:700;
+  display:flex;align-items:center;gap:8px
+}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.stat{
+  background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.055);
+  padding:11px;border-radius:9px;min-height:43px
+}
+.stat span{color:var(--muted)}.stat b{color:#f4f6fb}
+.progress{
+  width:100%;height:19px;background:#070a11;border:1px solid #293144;
+  border-radius:20px;overflow:hidden;margin-top:11px;padding:2px
+}
+.progress div{
+  height:100%;width:0%;background:linear-gradient(90deg,#73521a,var(--gold),#ffe29a);
+  border-radius:20px;transition:.3s;box-shadow:0 0 12px rgba(231,189,98,.28)
+}
+.buttons{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+button{
+  background:linear-gradient(145deg,#1b2231,#121824);color:#dfe5f0;
+  border:1px solid #30394c;padding:12px 10px;border-radius:9px;cursor:pointer;
+  font-size:14px;font-weight:600;transition:.18s;min-height:44px
+}
+button:hover{
+  background:linear-gradient(145deg,#252e40,#171e2c);border-color:#59667e;
+  transform:translateY(-1px)
+}
+button:active{transform:translateY(0)}
+button.main{
+  background:linear-gradient(145deg,#806225,#574014);border-color:#b58b36;
+  color:#fff;box-shadow:0 5px 18px rgba(128,98,37,.18)
+}
+button.main:hover{background:linear-gradient(145deg,#98762e,#694d18)}
+button.danger{color:#ff9b9b;border-color:#63343b}
+input{
+  width:100%;padding:12px 13px;background:#0b101a;border:1px solid #30394c;
+  color:white;border-radius:9px;margin-bottom:9px;outline:none
+}
+input:focus{border-color:#667da9;box-shadow:0 0 0 3px rgba(111,140,255,.09)}
+.log{
+  height:280px;overflow-y:auto;background:#070a10;border:1px solid #202738;
+  border-radius:9px;padding:12px;font-size:14px;line-height:1.6
+}
+.log p{border-bottom:1px solid #171d29;padding:5px 2px}
+.item{
+  background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.055);
+  padding:12px;margin:7px 0;border-radius:9px
+}
+.item b{color:var(--gold)}
+.hidden{display:none}
+small{color:var(--muted);font-size:12px}
+@media(max-width:560px){
+  .container{padding:10px 10px 28px}
+  header h1{font-size:26px}
+  .stats,.buttons{grid-template-columns:1fr}
+  .panel{padding:13px}
+}
+
+.tabbar{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:14px}
+.tabbtn{min-height:40px;padding:9px 6px;font-size:12px;border-radius:8px;background:#0d121d;border:1px solid #273044;color:#9fa9bb}
+.tabbtn.active{background:linear-gradient(145deg,#73551d,#4b3713);border-color:#a98132;color:#fff}
+.tabsection{display:none}
+.tabsection.active{display:block}
+@media(max-width:560px){.tabbar{grid-template-columns:repeat(2,1fr)}.tabbtn{font-size:13px}}
+
+
